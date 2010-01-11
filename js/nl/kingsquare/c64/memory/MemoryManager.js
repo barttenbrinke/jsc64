@@ -62,9 +62,7 @@ nl.kingsquare.c64.memory.MemoryManager = Class.extend({
 	* Read a byte from memory
 	*/
 	read: function(address/*:uint*/) {
-		var result = this.memoryBankInfo[this.memoryMapRead[address >> 8]].image.getValueByAddress(address);
-		if (typeof result == 'undefined') result = 0;
-		return result;
+		return this.memoryBankInfo[this.memoryMapRead[address >> 8]].image.getValueByAddress(address) || 0;
 	},
 
 	/**
